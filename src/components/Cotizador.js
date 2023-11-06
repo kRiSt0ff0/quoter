@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { PDFDownloadLink, PDFViewer, Page, Text, Document, View, StyleSheet, Image, Link } from '@react-pdf/renderer';
 
@@ -60,14 +61,21 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          background: 'lightblue', // Cambia el color de fondo de todos los TextField
-          fontFamily: 'Arial, sans-serif', // Cambia la tipografía de todos los TextField
-          border: '1px solid #fff',
+          background:'rgba(200, 200, 200, 0.5)', // Cambia el color de fondo de todos los TextField
+          borderRadius: '5px',
+          '& fieldset': {
+            borderColor: '#fff', // Cambia el color del borde a verde
+          },
         },
       },
     },
-  },
-});
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: '#000',
+        },
+    },
+}}});
 
   const styles = StyleSheet.create({
     page: {
