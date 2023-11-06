@@ -1,5 +1,18 @@
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  color: #051c2c;
+}
+
+html {
+  background-color: #051c2c;
+  background-image: url('jiro.jpeg');
+  background-size: cover;
+}
+
 .App {
   text-align: center;
+  margin: 0 auto;
 }
 
 .App-logo {
