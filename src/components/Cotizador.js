@@ -188,26 +188,27 @@ const theme = createTheme({
     /* LOGO XL*/
 
     logoXL: {
-      width: '150px',
+      width: '220px',
       height: 'auto',
-      margin: '0 0 0 30',
-    },
-    containerlogoXL:{
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
+      margin: '30px 0',
     },
 
     /* PDF FORM*/
+    pdfMakerContainer: {
+    margin: '0 auto',
+    flexDirection: 'column',
+    display: 'flex',
+    width: 1200,
+    alignItems: 'center',
+    },
     pdfMaker: {
       textAlign: 'center',
       display: 'flex',
-      margin: '40px auto',
+      margin: '0 0 0 50px',
       width: 1000,
       borderRadius: 10,
       boxShadow: '5px 5px 20px 10px rgba(0, 0, 0, .2)',
       backdropFilter: 'url(filters.svg#filter) blur(10px) saturate(200%)',
-      
     },
      formContainer: {
       flex: 1,
@@ -250,12 +251,10 @@ const theme = createTheme({
      }
 
       /* Discount */
-
-
   });
 
   const DocumentPDF = () => (
-    <Document>
+    <Document style={styles.document}>
     <Page size="A4" style={styles.page}>
     <View style={styles.header}>
         <Image src="../images/logo.png" style={styles.logo} />
@@ -343,12 +342,14 @@ const theme = createTheme({
   );
 
   return (
-    <><div style={styles.containerlogoXL}><Image src="../images/logo.png" style={styles.logoXL} /></div>
+    
+    <div style={styles.pdfMakerContainer}>
+      <img src="../images/logo-b.png" alt='logo' style={styles.logoXL}></img>  
     <div style={styles.pdfMaker}>
       <div style={styles.formContainer}>
       <h1>Cotizador</h1>
+      <br />
       <ThemeProvider theme={theme}>
-        <form>
         <TextField variant="outlined" style={styles.textFieldStyle}
           label="Nombre del Proyecto:"
           value={projectName}
@@ -407,8 +408,7 @@ const theme = createTheme({
             }
           } } />
         <br />
-        </form>
-</ThemeProvider>
+      </ThemeProvider>
       </div>
       <hr></hr>
       <div style={styles.pdfPreviewContainer}>
@@ -419,7 +419,9 @@ const theme = createTheme({
           <DocumentPDF />
         </PDFViewer>
       </div>
-    </div></>
+    </div>
+    <p>Todos los derechos reservados</p>
+    </div>
   );
 };
 
